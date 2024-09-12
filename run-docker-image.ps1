@@ -1,0 +1,1 @@
+& docker run --name poc-dotnet-api -d -p 5080:8080 poc-dotnet-api
