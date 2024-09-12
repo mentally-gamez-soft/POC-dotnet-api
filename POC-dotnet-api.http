@@ -1,0 +1,6 @@
+@POC_dotnet_api_HostAddress = http://localhost:5214
+
+GET {{POC_dotnet_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
