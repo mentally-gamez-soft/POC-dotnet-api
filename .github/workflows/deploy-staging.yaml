@@ -6,6 +6,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+      DOCKER_PASS: ${{secrets.DOCKER_PASSWORD}}
+      DOCKER_IMG_NAME: ${{secrets.DOCKER_IMAGE_NAME}}:poc-dotnet-api-v
+      DOCKER_IMG_VERSION: "0.1.4"
+
     strategy:
       matrix:
         dotnet-version: [ '6.0.x' ]
@@ -24,4 +30,12 @@ jobs:
         run: dotnet test 
 
       - name: Build Docker Image
-        run: docker build --build-arg version_number=0.1.3 -t poc-dotnet-api-v0.1.3 .
+        run: docker build --build-arg version_number=$DOCKER_IMG_VERSION -t $DOCKER_IMG_NAME$DOCKER_IMG_VERSION .
+
+      - name: docker login
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+
+      - name: docker push application image on registry
+        run: |
+          docker push $DOCKER_USER/$DOCKER_IMG_NAME$DOCKER_IMG_VERSION
