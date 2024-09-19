@@ -31,13 +31,3 @@ jobs:
 
       - name: Build Docker Image
         run: docker build --build-arg version_number=$DOCKER_IMG_VERSION -t $DOCKER_IMG_NAME$DOCKER_IMG_VERSION .
-
-      - name: docker login
-        uses: docker/login-action@v3
-        with: 
-            username: ${{ secrets.DOCKER_USER }}
-            password: ${{ secrets.DOCKER_PASS }}
-
-      - name: docker push application image on registry
-        run: |
-          docker push $DOCKER_USER/$DOCKER_IMG_NAME$DOCKER_IMG_VERSION
