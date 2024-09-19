@@ -6,7 +6,7 @@ public class Brand{
 
     public static string getRandomBrand() {
         //Console.WriteLine("Call of getRandomBrand()");
-        var brands = new[]{"Ford","Renault","Peugeot","Seat","VolksWggen","BMW","FIAT"};
+        var brands = new[]{"Ford","Renault","Peugeot","Seat","VolksWggen","BMW","FIAT","Jaguar"};
         var brand = brands[Random.Shared.Next(brands.Length)];
 
         //Console.WriteLine(brand);
@@ -16,6 +16,6 @@ public class Brand{
 
     public static string[] getAllBrands(){
         //Console.WriteLine("Call of getAllBrands()");
-        return ["Ford","Renault","Peugeot","Seat","VolksWggen","BMW","FIAT"];
+        return ["Ford","Renault","Peugeot","Seat","VolksWggen","BMW","FIAT","Jaguar"];
     }
 }
