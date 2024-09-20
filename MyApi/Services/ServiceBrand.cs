@@ -12,4 +12,10 @@ public class ServiceBrand {
 
         return new Brand (brandCode,brandName);
     }
+
+    public static List<Brand> GenerateAllBrandsRandom(){
+        IEnumerable<Brand> brands = Enumerable.Range(1, 30).Select(a => GenerateRandomBrand());
+        return brands.ToList();
+    }
+ 
 }

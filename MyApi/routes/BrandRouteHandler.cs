@@ -1,4 +1,5 @@
 using MyApi.Models;
+using MyApi.Services;
 
 namespace MyApi.routes;
 
@@ -8,7 +9,7 @@ public class BrandRouterHandler {
         var BrandRoute = "/brands";
 
         return x.MapGet(BrandRoute,(HttpRequest request) => {
-            return Brand.getAllBrands();
+            return ServiceBrand.GenerateAllBrandsRandom();
         }).WithName("GetAllBrands");
 
     }
@@ -17,7 +18,7 @@ public class BrandRouterHandler {
         var BrandRoute = "/brand";
 
         return x.MapGet(BrandRoute,(HttpRequest request) => {
-            return Brand.getRandomBrand();
+            return ServiceBrand.GenerateRandomBrand();
         }).WithName("GetRandomBrand");
 
     }
