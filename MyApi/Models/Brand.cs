@@ -1,21 +1,42 @@
 using Microsoft.VisualBasic;
+using Fare;
 
 namespace MyApi.Models;
 
 public class Brand{
 
-    public static string getRandomBrand() {
-        //Console.WriteLine("Call of getRandomBrand()");
-        var brands = new[]{"Ford","Renault","Peugeot","Seat","VolksWggen","BMW","FIAT","Jaguar"};
-        var brand = brands[Random.Shared.Next(brands.Length)];
+    public string BrandCode {get; set;}
+    public string BrandName {get; set;}
 
-        //Console.WriteLine(brand);
+    public Brand(string brandCode, string brandName){
+        BrandCode = brandCode;
+        BrandName = brandName;
+    }
+
+    public Brand() {
+        BrandCode = "BR-000-9999";
+        BrandName = "Default Brand";
+    }
+
+    public static string GenerateRandomBrandCode(){
+        var pattern = "[0-9]{3}-[0-9]{4}";
+        var xeger = new Xeger(pattern);
+        return xeger.Generate();
+    }
+
+    public static string getRandomBrand() {
+        var brands = getAllBrands();
+        var brand = brands[Random.Shared.Next(brands.Count)];
 
         return brand;
     }
 
-    public static string[] getAllBrands(){
-        //Console.WriteLine("Call of getAllBrands()");
-        return ["Ford","Renault","Peugeot","Seat","VolksWggen","BMW","FIAT","Jaguar"];
+    public static List<string> getAllBrands() {
+        return new List<string>(){"Ford","Renault","Peugeot","Jaguar","Fiat","Seat","BMW","Volkswaggen","Abarth","Mazda","Toyota"};
+    }
+
+    public override string ToString()
+    {
+        return $"Brand: {BrandCode} - {BrandName}";
     }
 }
