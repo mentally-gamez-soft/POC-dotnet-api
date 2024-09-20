@@ -16,5 +16,10 @@ WORKDIR /app
 # Copy the build output from the build stage
 COPY --from=build /app/out .
 
+# Ensure we listen on any IP Address 
+ENV DOTNET_URLS=http://+:5000
+ENV ASPNETCORE_URLS=http://+:5000
+
+EXPOSE 5000
 # Set the entry point to the published app
-ENTRYPOINT ["dotnet", "POC-dotnet-api.dll"]
+ENTRYPOINT ["dotnet", "MyApi.dll"]

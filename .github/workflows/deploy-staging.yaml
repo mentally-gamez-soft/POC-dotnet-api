@@ -1,0 +1,33 @@
+name: dotnet package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+      DOCKER_PASS: ${{secrets.DOCKER_PASSWORD}}
+      DOCKER_IMG_NAME: ${{secrets.DOCKER_IMAGE_NAME}}:poc-dotnet-api-v
+      DOCKER_IMG_VERSION: "0.1.5"
+
+    strategy:
+      matrix:
+        dotnet-version: [ '6.0.x' ]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup dotnet ${{ matrix.dotnet-version }}
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+      # You can test your matrix by printing the current dotnet version
+      - name: Display dotnet version
+        run: dotnet --version
+      
+      - name: Test with xunit
+        run: dotnet test 
+
+      - name: Build Docker Image
+        run: docker build --build-arg version_number=$DOCKER_IMG_VERSION -t $DOCKER_IMG_NAME$DOCKER_IMG_VERSION .
