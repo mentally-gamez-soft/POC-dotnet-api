@@ -12,7 +12,10 @@ public class ServiceDealer {
         var dealerName = Dealer.GenerateRandomDealerName();
         var dealerAddress = ServiceAddress.GenerateRandomAddress();
 
-        return new Dealer(dealerCode, dealerName, dealerAddress);
+        var dealer = new Dealer(dealerCode, dealerName, dealerAddress);
+        RegisterRandomBrand(dealer);
+
+        return dealer;
     }
 
     public static void RegisterRandomBrand(Dealer dealer) {
@@ -20,6 +23,11 @@ public class ServiceDealer {
         var brand = ServiceBrand.GenerateRandomBrand();
 
         dealer.RegisterBrandToDealer(brand);
+    }
+
+    public static List<Dealer> GenerateAllDealersRandom(){
+        IEnumerable<Dealer> dealers = Enumerable.Range(1, 100).Select(a => GenerateRandomDealer());
+        return dealers.ToList();
     }
 
 }

@@ -48,7 +48,7 @@ public class Dealer {
     }
 
     public static string GenerateRandomDealerName(){
-        var pattern = "[A-Z]{5-13}";
+        var pattern = "[a-zA-Z]{20}";
         var xeger = new Xeger(pattern);
         return xeger.Generate();
     }    
