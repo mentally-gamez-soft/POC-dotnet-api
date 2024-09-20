@@ -16,6 +16,6 @@ public class Brand{
 
     public static string[] getAllBrands(){
         //Console.WriteLine("Call of getAllBrands()");
-        return ["Ford","Renault","Peugeot","Seat","VolksWggen","BMW","FIAT"];
+        return ["Ford","Renault","Peugeot","Seat","VolksWggen","BMW","FIAT","Jaguar"];
     }
 }

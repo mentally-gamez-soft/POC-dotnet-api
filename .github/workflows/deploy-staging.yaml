@@ -10,7 +10,7 @@ jobs:
       DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
       DOCKER_PASS: ${{secrets.DOCKER_PASSWORD}}
       DOCKER_IMG_NAME: ${{secrets.DOCKER_IMAGE_NAME}}:poc-dotnet-api-v
-      DOCKER_IMG_VERSION: "0.1.4"
+      DOCKER_IMG_VERSION: "0.1.5"
 
     strategy:
       matrix:
