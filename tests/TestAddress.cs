@@ -40,4 +40,16 @@ public class TestAddress
 
         Assert.IsType(expected, actual);
     }
+
+    [Fact]
+    public void Test_GenerateAllAddressesRandom(){
+
+        var expected = typeof(Address);
+        var adresses = ServiceAddress.GenerateAllAddressesRandom();
+
+        foreach(Address actual in adresses){      
+            Assert.IsType(expected, actual);
+        }
+
+    }
 }

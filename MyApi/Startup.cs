@@ -25,5 +25,8 @@ public class Startup {
         app.UseRouting();
         app.UseEndpoints(all_brands => BrandRouterHandler.getAllBrands(all_brands));
         app.UseEndpoints(random_brand => BrandRouterHandler.getRandomBrand(random_brand));
+
+        app.UseEndpoints(all_addresses => AddressRouterHandler.getAllAddresses(all_addresses));
+        app.UseEndpoints(random_address=> AddressRouterHandler.getRandomAddress(random_address));
     }
 }

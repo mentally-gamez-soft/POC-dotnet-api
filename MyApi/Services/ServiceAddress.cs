@@ -21,4 +21,9 @@ public class ServiceAddress {
         return new Address (country,town,street,number);
     }
 
+    public static List<Address> GenerateAllAddressesRandom(){
+        IEnumerable<Address> addresses = Enumerable.Range(1, 100).Select(a => GenerateRandomAddress());
+        return addresses.ToList();
+    }
+
 }
