@@ -1,6 +1,12 @@
-@POC_dotnet_api_HostAddress = http://localhost:5214
+@POC_dotnet_api_HostAddress = http://localhost:5000
 
-GET {{POC_dotnet_api_HostAddress}}/weatherforecast/
+GET {{POC_dotnet_api_HostAddress}}/brand/
+Accept: application/json
+
+###
+
+
+GET {{POC_dotnet_api_HostAddress}}/brands/
 Accept: application/json
 
 ###
