@@ -17,5 +17,18 @@ public class ServiceBrand {
         IEnumerable<Brand> brands = Enumerable.Range(1, 30).Select(a => GenerateRandomBrand());
         return brands.ToList();
     }
- 
+
+    internal static Brand AddNewBrand()
+    {
+        var newBrand = GenerateRandomBrand();
+        // TODO Add to cache the address
+        return newBrand;
+    }
+
+    internal static object GetBrand(string id)
+    {
+        var newBrand = GenerateRandomBrand();
+        // TODO search for the address in cache / BDD / Memory ...
+        return newBrand;
+    }
 }

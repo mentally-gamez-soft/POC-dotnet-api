@@ -8,14 +8,18 @@ public class Brand{
     public string BrandCode {get; set;}
     public string BrandName {get; set;}
 
+    public Guid BrandId {get;set;}
+
     public Brand(string brandCode, string brandName){
         BrandCode = brandCode;
         BrandName = brandName;
+        BrandId = Guid.NewGuid();
     }
 
     public Brand() {
         BrandCode = "BR-000-9999";
         BrandName = "Default Brand";
+        BrandId = Guid.NewGuid();
     }
 
     public static string GenerateRandomBrandCode(){
@@ -37,6 +41,6 @@ public class Brand{
 
     public override string ToString()
     {
-        return $"Brand: {BrandCode} - {BrandName}";
+        return $"[ID -> {BrandId}] - Brand: {BrandCode} - {BrandName}";
     }
 }

@@ -26,4 +26,16 @@ public class ServiceAddress {
         return addresses.ToList();
     }
 
+    public static Address AddNewAddress() {
+        var newAddress = GenerateRandomAddress();
+        // TODO Add to cache the address
+        return newAddress;
+    }
+
+    public static Address GetAddress(string addressId) {
+        var newAddress = GenerateRandomAddress();
+        // TODO search for the address in cache / BDD / Memory ...
+        return newAddress;
+    }
+
 }
