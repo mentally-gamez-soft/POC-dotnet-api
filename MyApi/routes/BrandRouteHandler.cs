@@ -22,4 +22,21 @@ public class BrandRouterHandler {
         }).WithName("GetRandomBrand");
 
     }
+    public static RouteHandlerBuilder AddNewBrand(IEndpointRouteBuilder x){
+        var BrandRoute = "/add/brand";
+
+        return x.MapGet(BrandRoute,(HttpRequest request) => {
+            return ServiceBrand.AddNewBrand();
+        }).WithName("AddNewBrand");
+
+    }
+
+    public static RouteHandlerBuilder GetBrand(IEndpointRouteBuilder x){
+        var BrandRoute = "/get/brand";
+
+        return x.MapGet(BrandRoute,(string id) => { 
+            return ServiceBrand.GetBrand(id);
+        }).WithName("GetBrand");
+
+    }
 }

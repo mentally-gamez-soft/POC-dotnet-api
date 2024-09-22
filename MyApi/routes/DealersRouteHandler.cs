@@ -22,4 +22,22 @@ public class DealersRouterHandler {
         }).WithName("GetRandomDealer");
 
     }
+    
+    public static RouteHandlerBuilder AddNewDealer(IEndpointRouteBuilder x){
+        var BrandRoute = "/add/dealer";
+
+        return x.MapGet(BrandRoute,(HttpRequest request) => {
+            return ServiceDealer.AddNewDealer();
+        }).WithName("AddNewDealer");
+
+    }
+
+    public static RouteHandlerBuilder GetDealer(IEndpointRouteBuilder x){
+        var BrandRoute = "/get/dealer";
+
+        return x.MapGet(BrandRoute,(string id) => { 
+            return ServiceDealer.GetDealer(id);
+        }).WithName("GetDealer");
+
+    }
 }

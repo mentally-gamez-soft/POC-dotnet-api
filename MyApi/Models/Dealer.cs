@@ -8,6 +8,7 @@ public class Dealer {
     public string DealerCode {get; set;}
     public string DealerName {get; set;}
     public Address DealerAddress {get; set;}
+    public Guid DealerId {get;set;}
 
     private List<Brand> Brands;
 
@@ -17,6 +18,8 @@ public class Dealer {
         DealerCode = dealerCode;
         DealerName = dealerName;
         DealerAddress = address;
+
+        DealerId = Guid.NewGuid();
     }
 
     public Dealer(string dealerCode, string dealerName, Address address, List<Brand> brands){
@@ -25,6 +28,8 @@ public class Dealer {
         DealerCode = dealerCode;
         DealerName = DealerName;
         DealerAddress = address;
+
+        DealerId = Guid.NewGuid();
     }
 
     public Dealer(){
@@ -33,11 +38,14 @@ public class Dealer {
         DealerCode = "DC-0000-9999";
         DealerName = "Default Dealer";
 
+        DealerId = Guid.NewGuid();
+
         DealerAddress = new Address {
             Country = "Spain",
             Town = "Madrid",
             Street = "C/ Alcala",
             Number = "212 BIS",
+            AddressId = Guid.NewGuid(),
         };
     }
 
@@ -59,7 +67,7 @@ public class Dealer {
 
     public override string ToString()
     {
-        return $"Dealer: {DealerCode} - {DealerName} - {DealerAddress}";
+        return $"[ID -> {DealerId}] - Dealer: {DealerCode} - {DealerName} - {DealerAddress}";
     }
     
 }
