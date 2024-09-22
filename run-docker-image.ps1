@@ -1,1 +1,1 @@
-& docker run --name poc-dotnet-api -d -p 5080:8080 poc-dotnet-api
+& docker run --name poc-dotnet-api-v0.1.6 -d -p 5000:5000 poc-dotnet-api-v0.1.6:latest
