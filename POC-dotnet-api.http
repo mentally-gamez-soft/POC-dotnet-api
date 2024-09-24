@@ -10,3 +10,65 @@ GET {{POC_dotnet_api_HostAddress}}/brands/
 Accept: application/json
 
 ###
+
+POST {{POC_dotnet_api_HostAddress}}/add/address
+Accept: application/json
+
+###
+
+GET {{POC_dotnet_api_HostAddress}}/get/address?id=b4ed6113-e557-4f63-be81-2a81e3e5301b
+Accept: application/json
+
+###
+
+GET {{POC_dotnet_api_HostAddress}}/get/addresses-in-db
+Accept: application/json
+
+###
+
+
+
+
+########################################################################################
+##############################  ADDRESSES  #############################################
+########################################################################################
+
+GET {{POC_dotnet_api_HostAddress}}/list-addresses
+Accept: application/json
+
+###
+
+GET {{POC_dotnet_api_HostAddress}}/get-address?id=89934506-5334-46af-8727-1ff5d7840a25
+Accept: application/json
+
+###
+
+
+POST {{POC_dotnet_api_HostAddress}}/generate-set-of-addresses?addToBDD=true&addToCache=false
+Accept: application/json
+
+###
+
+
+POST {{POC_dotnet_api_HostAddress}}/generate-set-of-addresses?addToBDD=true&addToCache=true
+Accept: application/json
+
+###
+
+
+POST {{POC_dotnet_api_HostAddress}}/create-address?addToBDD=true&addToCache=false
+Accept: application/json
+
+###
+
+
+
+GET {{POC_dotnet_api_HostAddress}}/get-address?id=89934506-5334-46af-8727-1ff5d7840a25
+Accept: application/json
+
+###
+
+POST {{POC_dotnet_api_HostAddress}}/delete-address?id=89934506-5334-46af-8727-1ff5d7840a25
+Accept: application/json
+
+###
